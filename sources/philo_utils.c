@@ -49,6 +49,6 @@ int	ft_atoi(const char *str)
 void	philo_print(t_philo *philo, char *msg)
 {
 	pthread_mutex_lock(philo->table->printing);
-	printf("%ld	%d %s\n", actual_time() - start, philo->id, msg);
+	printf("%ld	%d %s\n", actual_time() - philo->table->t_start, philo->id, msg);
 	pthread_mutex_unlock(philo->table->printing);
 }
