@@ -29,5 +29,23 @@ void	*philo_routine(void *arg)
 
 void	philo_eat(t_philo *philo)
 {
+	philo->last_eat = actual_time();
+	pthread_mutex_lock(philo[philo->lfork].fork);
+	pthread_mutex_lock(philo[philo->rfork].fork);
+	philo_print(philo, IS EATING);
+	usleep(philo->table->t_eat);
+	pthread_mutex_unlock(philo[philo->lfork].fork);
+	pthread_mutex_unlock(philo[philo->rfork].fork);
 	
+}
+
+void	philo_sleep(t_philo *philo)
+{
+	print(philo, IS SLEEPING);
+	usleep(philo->table->t_sleep);
+}
+
+void	philo_think(t_philo *philo)
+{
+	print(philo, IS THINKING);
 }
