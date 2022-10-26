@@ -41,6 +41,7 @@ typedef struct s_table{
 	size_t	t_die;
 	size_t	t_eat;
 	size_t	t_sleep;
+	long int t_start;
 	int	eat_end;
 	int dead;
 
