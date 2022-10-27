@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:13:01 by baroun            #+#    #+#             */
-/*   Updated: 2022/10/27 17:08:51 by baroun           ###   ########.fr       */
+/*   Updated: 2022/10/27 17:50:33 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int philo_error(int ac, char **av)
 
 	i = 1;
 	
-	if ((ac < 5 && ac > 6) || ac == 1)
+	if (ac != 5 && ac != 6)
 	{
 		philo_error_arg_msg();
 		return (1);

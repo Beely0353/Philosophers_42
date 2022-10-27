@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:42:34 by baroun            #+#    #+#             */
-/*   Updated: 2022/10/27 17:17:08 by baroun           ###   ########.fr       */
+/*   Updated: 2022/10/27 17:49:58 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ t_table	*philo_parse(int ac, char **av)
 	table->end = 0;
 	pthread_mutex_init(&table->exit, NULL);
 	pthread_mutex_init(&table->printing, NULL);
-	table->eat_end = 32767;
 	if (ac == 6)
 		table->eat_end = ft_atoi(av[5]);
 	else
-		table->eat_end = -1;
+		table->eat_end = 32767;
 	return (table);
 }
