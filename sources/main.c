@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:43:16 by baroun            #+#    #+#             */
-/*   Updated: 2022/10/27 17:08:52 by baroun           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:24:57 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int main(int ac, char **av)
 		philo_start(table);
 		philo_end(table);
 	}
-	return (1);
+	return (0);
 }

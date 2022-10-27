@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:53:17 by baroun            #+#    #+#             */
-/*   Updated: 2022/10/27 17:33:54 by baroun           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:36:15 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	philo_init(t_table *table)
 	while(i < table->nb_of_philo)
 	{
 		pthread_mutex_init(&table->philo[i].fork, NULL);
-		table->philo[i].id = i;
+		table->philo[i].id = i + 1;
 		table->philo[i].eated = 0;
 		table->philo[i].eating = 0;
 		table->philo[i].sleeping = 0;
