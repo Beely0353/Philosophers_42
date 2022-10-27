@@ -6,11 +6,11 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:08:20 by baroun            #+#    #+#             */
-/*   Updated: 2022/10/25 16:16:24 by baroun           ###   ########.fr       */
+/*   Updated: 2022/10/27 16:22:53 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "philo.h"
 
 int	ft_isdigit(int c)
 {
@@ -48,7 +48,7 @@ int	ft_atoi(const char *str)
 
 void	philo_print(t_philo *philo, char *msg)
 {
-	pthread_mutex_lock(philo->table->printing);
+	pthread_mutex_lock(&philo->table->printing);
 	printf("%ld	%d %s\n", actual_time() - philo->table->t_start, philo->id, msg);
-	pthread_mutex_unlock(philo->table->printing);
+	pthread_mutex_unlock(&philo->table->printing);
 }

@@ -6,11 +6,11 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:38:51 by baroun            #+#    #+#             */
-/*   Updated: 2022/10/05 15:44:47 by baroun           ###   ########.fr       */
+/*   Updated: 2022/10/27 16:37:28 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/philo.h"
+#include "philo.h"
 
 size_t	actual_time(void)
 {
@@ -20,7 +20,7 @@ size_t	actual_time(void)
 	return (tm.tv_sec * 1000 + tm.tv_usec / 1000);
 }
 
-void	time_usleep(long int ms)
+void	time_usleep(size_t ms)
 {
 	size_t	time;
 
