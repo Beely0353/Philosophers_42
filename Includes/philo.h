@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:33:20 by baroun            #+#    #+#             */
-/*   Updated: 2022/10/27 17:04:30 by baroun           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:08:58 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 typedef struct s_philo{
 	pthread_t	thread;
+	pthread_t	mort;
 	int	id;
 	int eating;
 	int sleeping;
@@ -63,6 +64,7 @@ void	philo_init(t_table *table);
 void	*philo_routine(void *arg);
 void	philo_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);
+void	*philo_faucheuse(void *arg);
 void	philo_think(t_philo *philo);
 void	philo_end(t_table *table);
 
