@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:38:51 by baroun            #+#    #+#             */
-/*   Updated: 2022/10/31 17:26:54 by baroun           ###   ########.fr       */
+/*   Updated: 2022/11/03 17:52:24 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	actual_time(void)
 
 	gettimeofday(&tm, NULL);
 	current = tm.tv_sec * 1000 + tm.tv_usec / 1000;
-	return(current);
+	return (current);
 }
 
 void	time_usleep(size_t ms)
@@ -28,5 +28,5 @@ void	time_usleep(size_t ms)
 
 	time = actual_time();
 	while ((actual_time() - time) < ms)
-		usleep(500);
+		usleep(150);
 }
