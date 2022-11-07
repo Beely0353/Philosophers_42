@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:53:17 by baroun            #+#    #+#             */
-/*   Updated: 2022/11/03 18:01:08 by baroun           ###   ########.fr       */
+/*   Updated: 2022/11/07 18:55:24 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ void	philo_init(t_table *table)
 		table->philo[i].l_fork = i;
 		table->philo[i].r_fork = i + 1;
 		table->philo[i].table = table;
-		if (i == 0)
-			table->philo[i].r_fork = table->nb_of_philo;
-		if (i == table->nb_of_philo)
-			table->philo[i].r_fork = 0;
 	}
+	table->philo[0].r_fork = table->nb_of_philo;
+	table->philo[table->nb_of_philo].r_fork = 0;
 }

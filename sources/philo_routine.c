@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:04:00 by baroun            #+#    #+#             */
-/*   Updated: 2022/11/07 17:14:09 by baroun           ###   ########.fr       */
+/*   Updated: 2022/11/07 19:08:14 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*philo_routine(void *arg)
 	philo = (t_philo *) arg;
 	if (philo->id % 2 == 0)
 		usleep(15);
-	while (1)
+	while (!philo->table->end)
 	{
 		philo_eat(philo);
 		philo_sleep_think(philo);
@@ -34,7 +34,7 @@ void	philo_eat(t_philo *philo)
 	pthread_mutex_lock(&philo->table->philo[philo->l_fork].fork);
 	philo_print(philo, "IS TAKEN A FORK");
 	if (philo->table->nb_of_philo == 1)
-		time_usleep(philo->table->t_die * 2);
+		time_usleep(philo->table->t_die * 2 + 10);
 	pthread_mutex_lock(&philo->table->philo[philo->r_fork].fork);
 	philo_print(philo, "IS TAKEN A FORK");
 	pthread_mutex_lock(&philo->mod_eat);
@@ -45,6 +45,8 @@ void	philo_eat(t_philo *philo)
 	pthread_mutex_unlock(&philo->table->philo[philo->l_fork].fork);
 	pthread_mutex_unlock(&philo->table->philo[philo->r_fork].fork);
 	philo->eated++;
+	if (philo->eated >= philo->table->eat_end)
+		philo->table->nb_of_full++;
 }
 
 void	philo_sleep_think(t_philo *philo)
@@ -56,6 +58,8 @@ void	philo_sleep_think(t_philo *philo)
 	if (philo->table->end)
 		return ;
 	philo_print(philo, "IS THINKING");
+	if (philo->table->nb_of_philo == 2)
+		time_usleep(30);
 }
 
 void	*philo_faucheuse(void *arg)
@@ -69,17 +73,16 @@ void	*philo_faucheuse(void *arg)
 		if ((actual_time() - philo->last_eat) > philo->table->t_die)
 		{
 			pthread_mutex_lock(&philo->table->printing);
-			printf("%ld   %d IS DEAD\n", \
+			printf("%ld   %d DIED\n", \
 			actual_time() - philo->table->t_start, philo->id);
 			philo->table->end = 1;
 		}
 		pthread_mutex_unlock(&philo->mod_eat);
-		if (philo->eated >= philo->table->eat_end \
+		if (philo->table->nb_of_full == philo->table->nb_of_philo \
 		&& philo->table->eat_end != -42)
 		{
 			pthread_mutex_lock(&philo->table->printing);
-			printf("%ld   %d IS NO LONGER HUNGRY\n", \
-			actual_time() - philo->table->t_start, philo->id);
+			printf("NO ONE HAS HUNGRY\n");
 			philo->table->end = 1;
 		}
 	}

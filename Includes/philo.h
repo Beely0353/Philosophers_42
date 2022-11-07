@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:33:20 by baroun            #+#    #+#             */
-/*   Updated: 2022/11/07 17:05:29 by baroun           ###   ########.fr       */
+/*   Updated: 2022/11/07 19:04:04 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_philo{
 
 typedef struct s_table{
 	int				nb_of_philo;
+	int				nb_of_full;
 	size_t			t_die;
 	size_t			t_eat;
 	size_t			t_sleep;

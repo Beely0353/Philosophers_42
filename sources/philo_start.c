@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:01:10 by baroun            #+#    #+#             */
-/*   Updated: 2022/11/07 17:07:34 by baroun           ###   ########.fr       */
+/*   Updated: 2022/11/07 18:51:01 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	philo_end(t_table *table)
 {
 	int	i;
 
-	time_usleep(100);
+	time_usleep(200);
 	i = -1;
 	while (++i < table->nb_of_philo)
 	{
@@ -43,6 +43,6 @@ void	philo_end(t_table *table)
 		pthread_mutex_destroy(&table->philo[i].mod_eat);
 	}
 	pthread_mutex_destroy(&table->printing);
-	free(table->philo);
 	free(table);
+	free(table->philo);
 }
