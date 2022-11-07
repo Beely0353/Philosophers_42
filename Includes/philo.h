@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:33:20 by baroun            #+#    #+#             */
-/*   Updated: 2022/11/03 17:59:31 by baroun           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:05:29 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef struct s_table{
 	int				end;
 
 	pthread_mutex_t	printing;
-	pthread_mutex_t	exit;
 	t_philo			*philo;
 }	t_table;
 
@@ -62,9 +61,8 @@ void	philo_start(t_table *table);
 void	philo_init(t_table *table);
 void	*philo_routine(void *arg);
 void	philo_eat(t_philo *philo);
-void	philo_sleep(t_philo *philo);
+void	philo_sleep_think(t_philo *philo);
 void	*philo_faucheuse(void *arg);
-void	philo_think(t_philo *philo);
 void	philo_end(t_table *table);
 
 /* ************************** UTILS *************************** */

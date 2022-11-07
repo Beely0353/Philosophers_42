@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:08:20 by baroun            #+#    #+#             */
-/*   Updated: 2022/11/03 17:51:52 by baroun           ###   ########.fr       */
+/*   Updated: 2022/11/07 16:37:58 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_atoi(const char *str)
 void	philo_print(t_philo *philo, char *msg)
 {
 	pthread_mutex_lock(&philo->table->printing);
-	printf("%ld    %d %s\n", actual_time() - \
+	printf("%ld   %d %s\n", actual_time() - \
 			philo->table->t_start, philo->id, msg);
 	pthread_mutex_unlock(&philo->table->printing);
 }
