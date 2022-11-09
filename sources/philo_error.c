@@ -6,7 +6,7 @@
 /*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:13:01 by baroun            #+#    #+#             */
-/*   Updated: 2022/11/09 16:37:30 by baroun           ###   ########.fr       */
+/*   Updated: 2022/11/09 18:17:28 by baroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,9 @@ int	philo_error(int ac, char **av)
 	while (av[i])
 	{
 		if (philo_error_int(av[i]))
-			return (printf("Error:\narguments must be a non-zero positive number."));
+			return \
+			(printf("Error:\narguments must be a non-zero positive numbers."));
 		i++;
-	}
-	if (ft_atoi(av[1]) <= 0)
-	{
-		printf("Error:\nmust have at least one philosopher");
-		return (1);
 	}
 	return (0);
 }
