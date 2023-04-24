@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baroun <baroun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: biaroun <biaroun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:33:20 by baroun            #+#    #+#             */
-/*   Updated: 2022/11/07 19:04:04 by baroun           ###   ########.fr       */
+/*   Updated: 2023/04/24 14:14:48 by biaroun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 
 typedef struct s_philo{
 	pthread_t		thread;
-	pthread_t		mort;
 	int				id;
 	int				sleeping;
 	size_t			last_eat;
@@ -63,7 +62,6 @@ void	philo_init(t_table *table);
 void	*philo_routine(void *arg);
 void	philo_eat(t_philo *philo);
 void	philo_sleep_think(t_philo *philo);
-void	*philo_faucheuse(void *arg);
 void	philo_end(t_table *table);
 
 /* ************************** UTILS *************************** */
